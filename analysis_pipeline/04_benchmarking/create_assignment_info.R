@@ -9,6 +9,7 @@
 #           across platform and segmentation
 
 suppressPackageStartupMessages({
+  library(optparse)
   library(arrow)
   library(dplyr)
   library(tibble)

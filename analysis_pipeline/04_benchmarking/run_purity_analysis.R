@@ -13,6 +13,7 @@
 #           or data)
 
 suppressPackageStartupMessages({
+  library(optparse)
   library(Seurat)
   library(SingleCellExperiment)
   library(dplyr)

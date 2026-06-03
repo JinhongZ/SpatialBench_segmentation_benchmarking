@@ -6,6 +6,7 @@
 #           aspect_ratio, log10_signal_density.
 
 suppressPackageStartupMessages({
+  library(optparse)
   library(Seurat)
   library(future)
   library(future.apply)

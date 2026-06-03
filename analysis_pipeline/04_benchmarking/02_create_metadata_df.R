@@ -9,6 +9,7 @@
 #           annotated.rds from 03_downstream_analysis/01_annotation.R. 
 
 suppressPackageStartupMessages({
+  library(optparse)
   library(tidyverse)
   library(tidyr)
   library(purrr)
