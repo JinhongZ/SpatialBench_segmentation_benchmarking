@@ -76,7 +76,8 @@ de_result <- purrr::map_dfr(cell_types, function(cell_type) {
       obj, 
       cell_label = opt$cell_type_col, 
       cell_type = cell_type, 
-      group = grp
+      group = grp,
+      sample_id_col = opt$sample_id_col
     ) %>% 
       mutate(
         cell_type = cell_type, 

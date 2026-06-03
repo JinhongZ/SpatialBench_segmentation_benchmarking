@@ -1,10 +1,10 @@
 # Required packages are Seurat, tidyverse, dplyr, limma and edgeR 
 
 # Aggregate counts to sample level and prepare data for pseudo-bulk DE analysis
-aggregate_counts <- function(merged_seurat, cell_label) {
+aggregate_counts <- function(merged_seurat, cell_label, sample_id_col = "sample_id") {
   # aggregate gene counts by cell types and conditions
   cts <- AggregateExpression(merged_seurat,
-                             group.by = c(cell_label, "sample_id"),
+                             group.by = c(cell_label, sample_id_col),
                              assays = 'SCT',
                              slot = "counts", # want the raw counts
                              return.seurat = FALSE)
@@ -105,10 +105,11 @@ run_pseudo_bulk_de <- function(
     cell_label,
     cell_type, 
     group, 
-    marker_genes = NULL
+    marker_genes = NULL,
+    sample_id_col = "sample_id"
 ) {
   # Prepare data for pseudo-bulk DE analysis
-  cts.split <- aggregate_counts(merged_seurat, cell_label)
+  cts.split <- aggregate_counts(merged_seurat, cell_label, sample_id_col)
   dge <- transform_data(cts.split, cell_type)
   
   # Filter lowly expressed genes
@@ -159,7 +160,8 @@ all_de_res <- function(
     cell_type, 
     groups = c("KOvsWT", "KOvsCTRL", "WTvsCTRL"),
     marker_genes = NULL,
-    segmentation
+    segmentation,
+    sample_id_col = "sample_id"
 ) {
   if (length(seurat_list) != length(segmentation)) {
     return("The length of Seurat list must be the same as the number of segmentation methods")
@@ -168,7 +170,14 @@ all_de_res <- function(
   for (i in seq_along(seurat_list)) {
     obj <- seurat_list[[i]]
     merged_res[[i]] <- lapply(groups, function(grp) {
-      run_pseudo_bulk_de(obj, cell_label, cell_type, grp, marker_genes) %>% 
+      run_pseudo_bulk_de(
+        obj, 
+        cell_label, 
+        cell_type, 
+        grp, 
+        marker_genes,
+        sample_id_col
+      ) %>% 
         mutate(group = grp,
                segmentation = segmentation[i])
     }) %>% 
@@ -223,4 +232,3 @@ volcano_plot <- function(res, cell_type) {
 #   segmentation = c("Default", "Proseg", "Cellpose2")
 # )
 # volcano_plot(merged_res, cell_type = "B cells")
-
