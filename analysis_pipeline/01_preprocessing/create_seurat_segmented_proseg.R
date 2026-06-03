@@ -14,7 +14,7 @@ library(optparse)
 library(Seurat)
 library(Matrix)
 
-source("helper_functions/segmentation_utils.R")  # must be run from the project root
+source("analysis_pipeline/helper_functions/segmentation_utils.R")
 
 option_list <- list(
   make_option(c("--data_dir"),    type = "character", default = NULL,

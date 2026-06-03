@@ -19,7 +19,7 @@ suppressPackageStartupMessages({
 })
 
 # Load helper functions to extract sample- and cell-level metrics
-source("helper_functions/extract_metrics.R")
+source("analysis_pipeline/helper_functions/extract_metrics.R")
 
 option_list <- list(
   make_option(c("--sample_info_dir"),     type = "character", default = NULL,

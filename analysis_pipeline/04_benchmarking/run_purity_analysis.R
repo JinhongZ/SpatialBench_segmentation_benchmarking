@@ -21,7 +21,7 @@ suppressPackageStartupMessages({
 })
 
 # Load helper functions for computing MECRs
-source("helper_functions/purity_analysis.R")
+source("analysis_pipeline/helper_functions/purity_analysis.R")
 
 option_list <- list(
   make_option(c("--data_info_dir"),     type = "character", default = NULL,

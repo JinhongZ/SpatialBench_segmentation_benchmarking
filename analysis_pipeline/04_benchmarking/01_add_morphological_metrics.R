@@ -14,7 +14,7 @@ suppressPackageStartupMessages({
   library(sp)
 })
 
-source("helper_functions/compute_morphological_metrics.R")
+source("analysis_pipeline/helper_functions/compute_morphological_metrics.R")
 
 option_list <- list(
   make_option(c("--input_rds"),   type = "character", default = NULL,

@@ -17,7 +17,7 @@ suppressPackageStartupMessages({
 })
 
 # Load helper functions to compute % transcripts assigned to cells
-source("helper_functions/compute_assignment_metric.R")
+source("analysis_pipeline/helper_functions/compute_assignment_metric.R")
 
 option_list <- list(
   make_option(c("--sample_info_dir"),     type = "character", default = NULL,
@@ -31,7 +31,7 @@ opt <- parse_args(OptionParser(option_list = option_list))
 # Check if required arguments are provided properly
 if (is.null(opt$out_file)) stop("--out_file is required")
 if (is.null(opt$sample_info_dir)) {
-  source("helper_functions/create_sample_info.R")
+  source("analysis_pipeline/helper_functions/create_sample_info.R")
 } else {
   sample_info <- readRDS(opt$sample_info_dir)
 }

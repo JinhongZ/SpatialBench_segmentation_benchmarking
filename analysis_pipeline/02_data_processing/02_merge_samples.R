@@ -30,7 +30,7 @@ opt <- parse_args(OptionParser(option_list = option_list))
 
 # check if required arguments are provided properly
 required_args <- c(
-  "input_dir", "method", "out_file",
+  "input_dir", "method", "out_file"
 )
 
 for (arg in required_args) {

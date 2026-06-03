@@ -15,7 +15,7 @@ suppressPackageStartupMessages({
 })
 
 # Load helper functions to perform ScType annotation
-source("helper_functions/ScType_annotation.R")
+source("analysis_pipeline/helper_functions/ScType_annotation.R")
 
 option_list <- list(
   make_option(c("--input_rds"),   type = "character", default = NULL,

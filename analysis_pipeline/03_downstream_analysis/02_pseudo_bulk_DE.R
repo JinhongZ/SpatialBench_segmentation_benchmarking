@@ -21,7 +21,7 @@ suppressPackageStartupMessages({
 })
 
 # Load helper functions to perform pseudo-bulk differential expression
-source("helper_functions/pseudo_bulk_DE_functions.R")
+source("analysis_pipeline/helper_functions/pseudo_bulk_DE_functions.R")
 
 option_list <- list(
   make_option(c("--input_rds"),     type = "character", default = NULL,
