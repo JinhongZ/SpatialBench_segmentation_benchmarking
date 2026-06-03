@@ -1,15 +1,20 @@
 # Required packages are Seurat, tidyverse, dplyr, limma and edgeR 
 
 # Aggregate counts to sample level and prepare data for pseudo-bulk DE analysis
-aggregate_counts <- function(merged_seurat, cell_label, sample_id_col = "sample_id") {
+aggregate_counts <- function(
+    merged_seurat, 
+    cell_label, 
+    sample_id_col = "sample_id",
+    assay = "SCT"
+) {
   # aggregate gene counts by cell types and conditions
   cts <- AggregateExpression(merged_seurat,
                              group.by = c(cell_label, sample_id_col),
-                             assays = 'SCT',
+                             assays = assay,
                              slot = "counts", # want the raw counts
                              return.seurat = FALSE)
   # transpose
-  cts <- cts$SCT
+  cts <- cts[[assay]]
   cts.t <- t(cts)
   
   # convert to data.frame
@@ -106,10 +111,11 @@ run_pseudo_bulk_de <- function(
     cell_type, 
     group, 
     marker_genes = NULL,
-    sample_id_col = "sample_id"
+    sample_id_col = "sample_id",
+    assay = "SCT"
 ) {
   # Prepare data for pseudo-bulk DE analysis
-  cts.split <- aggregate_counts(merged_seurat, cell_label, sample_id_col)
+  cts.split <- aggregate_counts(merged_seurat, cell_label, sample_id_col, assay)
   dge <- transform_data(cts.split, cell_type)
   
   # Filter lowly expressed genes
@@ -161,7 +167,8 @@ all_de_res <- function(
     groups = c("KOvsWT", "KOvsCTRL", "WTvsCTRL"),
     marker_genes = NULL,
     segmentation,
-    sample_id_col = "sample_id"
+    sample_id_col = "sample_id",
+    assay = "SCT"
 ) {
   if (length(seurat_list) != length(segmentation)) {
     return("The length of Seurat list must be the same as the number of segmentation methods")
@@ -176,7 +183,8 @@ all_de_res <- function(
         cell_type, 
         grp, 
         marker_genes,
-        sample_id_col
+        sample_id_col,
+        assay
       ) %>% 
         mutate(group = grp,
                segmentation = segmentation[i])
