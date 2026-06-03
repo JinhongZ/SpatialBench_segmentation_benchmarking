@@ -1,8 +1,8 @@
 # Purpose:  Create a default sample_info data.table of full file path to 
-#           transcript metatdata for each segmentation and platform if not 
+#           transcript metadata for each segmentation and platform if not 
 #           provided
 
-# list file directories for MERSCOPE's Vizgen (Cellpose1) and Cellpose (Cellpose2) samples
+# list file directories for MERSCOPE's Default and Cellpose2 samples
 merscope_dir <- "/vast/projects/SpatialBench/segmentation/Cellpose/resegmentation_cellpose_merscope/MERSCOPE_cellpose_reseg"
 merscope_sub_dir <- list.files(merscope_dir, pattern = "^Batch|^Sample")
 merscope_name <- merscope_sub_dir %>% 

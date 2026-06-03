@@ -220,8 +220,7 @@ volcano_plot <- function(res, cell_type) {
 #   seurat_list = list(merged_cellpose1, merged_proseg, merged_cellpose2), 
 #   cell_label = "ScType_label_res.0.6",
 #   cell_type = "B cells",
-#   segmentation = c("Cellpose1", "Proseg", "Cellpose2")
+#   segmentation = c("Default", "Proseg", "Cellpose2")
 # )
 # volcano_plot(merged_res, cell_type = "B cells")
-
 

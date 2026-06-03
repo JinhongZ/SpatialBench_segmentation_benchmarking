@@ -65,7 +65,7 @@ message("Output:        ", opt$out_file)
 # Load annotated object
 obj <- readRDS(opt$input_rds)
 
-# Define contrast groups and annoated cell types
+# Define contrast groups and annotated cell types
 groups <- c("KOvsWT", "KOvsCTRL", "WTvsCTRL")
 cell_types <- levels(obj[[opt$cell_type_col]][, 1])
 

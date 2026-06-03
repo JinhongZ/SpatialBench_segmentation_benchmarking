@@ -36,14 +36,14 @@ if (is.null(opt$sample_info_dir)) {
   main_dir <- "/vast/scratch/users/zhang.ji/data"
   sample_info <- tribble(
     ~platform,  ~segmentation,          ~sub_dir,                                                                            ~count_col,          ~feature_col,          ~model,          
-    "MERSCOPE", "Cellpose1",            "default_segmentation/Merscope_seurat/vizgen_ctrl_wt_ko_annotated.rds",              "nCount_Vizgen",     "nFeature_Vizgen",     NA_character_,
+    "MERSCOPE", "Default",              "default_segmentation/Merscope_seurat/vizgen_ctrl_wt_ko_annotated.rds",              "nCount_Vizgen",     "nFeature_Vizgen",     NA_character_,
     "MERSCOPE", "Proseg",               "proseg_segmentation/Merscope_seurat/vizgen_ctrl_wt_ko_annotated.rds",               "nCount_Vizgen",     "nFeature_Vizgen",     NA_character_,
     "MERSCOPE", "Cellpose2",            "cellpose_segmentation/Merscope_seurat/vizgen_ctrl_wt_ko_annotated.rds",             "nCount_Vizgen",     "nFeature_Vizgen",     NA_character_,
     
-    "Xenium",   "Nuclear expansion",    "default_segmentation/Xenium_seurat/unimodal/xenium_ctrl_wt_ko_annotated.rds",       "nCount_Xenium",     "nFeature_Xenium",     "unimodal",
+    "Xenium",   "Default",              "default_segmentation/Xenium_seurat/unimodal/xenium_ctrl_wt_ko_annotated.rds",       "nCount_Xenium",     "nFeature_Xenium",     "unimodal",
     "Xenium",   "Proseg",               "proseg_segmentation/Xenium_seurat/unimodal/xenium_ctrl_wt_ko_annotated.rds",        "nCount_Xenium",     "nFeature_Xenium",     "unimodal",
     
-    "Xenium",   "Nuclear expansion",    "default_segmentation/Xenium_seurat/multimodal/xenium_ctrl_wt_ko_annotated.rds",     "nCount_Xenium",     "nFeature_Xenium",     "multimodal",
+    "Xenium",   "Default",              "default_segmentation/Xenium_seurat/multimodal/xenium_ctrl_wt_ko_annotated.rds",     "nCount_Xenium",     "nFeature_Xenium",     "multimodal",
     "Xenium",   "Proseg",               "proseg_segmentation/Xenium_seurat/multimodal/xenium_ctrl_wt_ko_annotated.rds",      "nCount_Xenium",     "nFeature_Xenium",     "multimodal",
     "Xenium",   "Cellpose2",            "cellpose_segmentation/Xenium_seurat/xenium_ctrl_wt_ko_annotated.rds",               "nCount_Xenium",     "nFeature_Xenium",     "multimodal"
   ) %>% 

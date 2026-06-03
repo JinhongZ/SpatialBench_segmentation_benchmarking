@@ -2,7 +2,7 @@
 #           transcript metadata for each segmentation method and platform.
 # Inputs:   sample_info.rds - a data.table/data.frame contains columns of 
 #           sample_id (e.g., wt709), file_path (full file path to transcript 
-#           metdata file), platform (e.g., MERSCOPE or Xenium), model (NA, 
+#           metadata file), platform (e.g., MERSCOPE or Xenium), model (NA, 
 #           unimodal or multimodal), segmentation (Default, Proseg, Cellpose2); 
 #           Transcript metadata file from each segmentation output. 
 # Outputs:  assignment_info.csv - combined all transcript assignment information 
@@ -23,7 +23,7 @@ option_list <- list(
   make_option(c("--sample_info_dir"),     type = "character", default = NULL,
               help = "Path to sample_info.rds that stores full file path to transcript metadata across segmentation and platform"),
   make_option(c("--out_file"),      type = "character", default = NULL,
-              help = "Full output path for pseudo-bulk_DE_results.csv")
+              help = "Full output path for assignment_info.csv")
 )
 
 opt <- parse_args(OptionParser(option_list = option_list))

@@ -27,7 +27,7 @@ option_list <- list(
   make_option(c("--data_info_dir"),     type = "character", default = NULL,
               help = "Path to data_info.rds that stores file paths to all annotated.rds"),
   make_option(c("--sc_ref_dir"),     type = "character", default = NULL,
-              help = "Path to scRNA-seq refernce"),
+              help = "Path to scRNA-seq reference"),
   make_option(c("--out_path"),      type = "character", default = NULL,
               help = "Full output path for MECR_*.rds")
 )
