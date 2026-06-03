@@ -63,7 +63,8 @@ extract_sample_and_cell_df <- function(
     file_path,
     segmentation,
     count_col,
-    feature_col
+    feature_col,
+    common_genes
 ) {
   obj <- readRDS(file_path)
   
@@ -98,7 +99,15 @@ save_sample_and_cell_df <- function(sample_info, common_genes, out_path) {
     mutate(
       out = purrr::pmap(
         list(file_path, segmentation, count_col, feature_col),
-        extract_sample_and_cell_df
+        function(file_path, segmentation, count_col, feature_col) {
+          extract_sample_and_cell_df(
+            file_path = file_path,
+            segmentation = segmentation,
+            count_col = count_col,
+            feature_col = feature_col,
+            common_genes = common_genes
+          )
+        }
       )
     ) %>% 
     tidyr::unnest_wider(out)
