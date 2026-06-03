@@ -8,7 +8,7 @@
 # Outputs:  Seurat object with BANKSY assay saved as <out_dir>/<sample_name>.rds
 # Usage:    Rscript 02_data_processing/01_sample_processing.R \
 #             --input_rds <path> --sample_name <name> \
-#             --platform <merscope|xenium> --seg <default|proseg|cellpose22> \
+#             --platform <merscope|xenium> --seg <default|proseg|cellpose2> \
 #             --assay <Vizgen|Xenium> \
 #             --qc_min_counts <int> \
 #             --out_dir <path>
@@ -85,7 +85,7 @@ obj$seg         <- opt$seg
 
 # Derive condition from the sample_name prefix: wt / ko / ctrl
 obj$stim <- ifelse(startsWith(opt$sample_name, "wt"), "wt",
-                  ifelse(startsWith(opt$sample_name, "ko"), "ko", "ctrl"))
+                   ifelse(startsWith(opt$sample_name, "ko"), "ko", "ctrl"))
 
 # Derive sample_id by stripping the batch and region suffix
 # Handles both single-underscore (wt709_batch27) and double-underscore (wt709__batch34__0032118)
