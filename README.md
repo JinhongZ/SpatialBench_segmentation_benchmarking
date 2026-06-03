@@ -132,7 +132,7 @@ Processed plotting data are stored in `thesis_figures/plot_data`.
 
 ## R packages
 
-The scripts use packages including `Seurat`, `SeuratWrappers`, `harmony`, `optparse`, `arrow`, `Matrix`, `future`, `tidyverse`, `data.table`, `purrr`, `tidyr`, `dplyr`, `limma`, `edgeR`, `sf`, `sp`, and `SingleCellExperiment`.
+The scripts use packages including `Seurat`, `SeuratWrappers`, `harmony`, `optparse`, `arrow`, `Matrix`, `future`, `tidyverse`, `data.table`, `purrr`, `tidyr`, `dplyr`, `limma`, `edgeR`, `sf`, `sp`, `SingleCellExperiment`, and `speckle`.
 
 ## Acknowledgement
 
