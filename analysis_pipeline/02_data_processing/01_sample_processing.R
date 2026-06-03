@@ -5,7 +5,7 @@
 #           Takes a Seurat object from 01_preprocessing as input.
 # Inputs:   RDS file produced by 01_preprocessing (cell-segmented Seurat object);
 #           platform, segmentation method, and analysis parameters passed as CLI args
-# Outputs:  Seurat object with BANKSY assay saved as <out_dir>/<sample_name>.rds
+# Outputs:  Seurat object with SCT assay saved as <out_dir>/<sample_name>.rds
 # Usage:    Rscript 02_data_processing/01_sample_processing.R \
 #             --input_rds <path> --sample_name <name> \
 #             --platform <merscope|xenium> --seg <default|proseg|cellpose2> \

@@ -141,4 +141,4 @@ sample_info <- data.table::rbindlist(
   list(merscope_info, xenium_info),
   use.names = TRUE
 ) %>% 
-  mutate(file_path = segmentation_dir, sub_dir)
+  mutate(file_path = file.path(segmentation_dir, sub_dir))

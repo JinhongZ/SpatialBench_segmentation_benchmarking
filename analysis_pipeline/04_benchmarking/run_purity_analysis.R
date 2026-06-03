@@ -52,7 +52,7 @@ if (is.null(opt$data_info_dir)) {
   ) %>% 
     mutate(file_path = file.path(main_dir, file))
 } else {
-  sample_info <- readRDS(opt$data_info_dir)
+  data_info <- readRDS(opt$data_info_dir)
 }
 
 # Set marker list used for cell type annotation
@@ -127,5 +127,5 @@ MECR_sc <- getMECR_panel(
 # Save MECR list
 saveRDS(MECR_sp, file = file.path(opt$out_path, "MECR_sp_customised.rds"))
 saveRDS(MECR_sc, file = file.path(opt$out_path, "MECR_sc.rds"))
-message("\nSaved MECR lists to: ", opt$out_file)
+message("\nSaved MECR lists to: ", opt$out_path)
 message("Done.")
