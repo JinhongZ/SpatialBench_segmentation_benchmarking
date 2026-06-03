@@ -20,6 +20,9 @@ suppressPackageStartupMessages({
 
 source("thesis_figures/plot_functions.R")
 
+output_dir <- "thesis_figures/figures/fig4"
+dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+
 # Load sample- and cell-level metadata from plot_data/
 sample_df <- read.csv("thesis_figures/plot_data/sample_df.csv") %>% 
   mutate(
@@ -47,7 +50,8 @@ cell_df <- data.table::fread("thesis_figures/plot_data/cell_df.csv.gz") %>%
   mutate(
     platform_version = case_when(
       model == "" ~ platform,
-      .default = paste(platform, model))
+      .default = paste(platform, model)
+    )
   )
 cell_df$segmentation <- factor(
   cell_df$segmentation,
@@ -181,7 +185,7 @@ sample_level_quality_metrics <-
   total_cell_counts_filtered | total_transcript_counts_filtered_common | pt_assignment_filtered_common 
 
 ggsave(
-  "thesis_figures/figures/fig4/fig4_sample_level_metrics.pdf", 
+  file.path(output_dir, "fig4_sample_level_metrics.pdf"),
   plot = sample_level_quality_metrics, 
   width = 12, height = 4
 )
@@ -202,7 +206,7 @@ cell_level_quality_metrics <- wrap_plots(list(
   plot_layout(design = layout, heights = c(1, 0.2, 1))
 
 ggsave(
-  "thesis_figures/figures/fig4/fig4_cell_level_quality_metrics.pdf", 
+  file.path(output_dir, "fig4_cell_level_quality_metrics.pdf"),
   plot = cell_level_quality_metrics, 
   width = 15, height = 8
 )
