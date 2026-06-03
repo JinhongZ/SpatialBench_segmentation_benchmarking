@@ -18,10 +18,10 @@ suppressPackageStartupMessages({
   library(patchwork)
 })
 
-source("plot_functions.R")
+source("thesis_figures/plot_functions.R")
 
 # Load sample- and cell-level metadata from plot_data/
-sample_df <- read.csv("plot_data/sample_df.csv") %>% 
+sample_df <- read.csv("thesis_figures/plot_data/sample_df.csv") %>% 
   mutate(
     platform_version = case_when(
       is.na(model) ~ platform, 
@@ -32,7 +32,7 @@ sample_df$segmentation <- factor(
   levels = c("Default", "Proseg", "Cellpose2")
 )
 
-assignment_info <- read.csv("plot_data/assignment_info.csv") %>% 
+assignment_info <- read.csv("thesis_figures/plot_data/assignment_info.csv") %>% 
   mutate(
     platform_version = case_when(
       is.na(model) ~ platform, 
@@ -43,7 +43,7 @@ assignment_info$segmentation <- factor(
   levels = c("Default", "Proseg", "Cellpose2")
 )
 
-cell_df <- data.table::fread("plot_data/cell_df.csv.gz") %>% 
+cell_df <- data.table::fread("thesis_figures/plot_data/cell_df.csv.gz") %>% 
   mutate(
     platform_version = case_when(
       model == "" ~ platform,
@@ -181,7 +181,7 @@ sample_level_quality_metrics <-
   total_cell_counts_filtered | total_transcript_counts_filtered_common | pt_assignment_filtered_common 
 
 ggsave(
-  "figures/fig4/fig4_sample_level_metrics.pdf", 
+  "thesis_figures/figures/fig4/fig4_sample_level_metrics.pdf", 
   plot = sample_level_quality_metrics, 
   width = 12, height = 4
 )
@@ -202,7 +202,7 @@ cell_level_quality_metrics <- wrap_plots(list(
   plot_layout(design = layout, heights = c(1, 0.2, 1))
 
 ggsave(
-  "figures/fig4/fig4_cell_level_quality_metrics.pdf", 
+  "thesis_figures/figures/fig4/fig4_cell_level_quality_metrics.pdf", 
   plot = cell_level_quality_metrics, 
   width = 15, height = 8
 )
