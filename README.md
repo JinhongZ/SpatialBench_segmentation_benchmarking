@@ -1,4 +1,4 @@
-# SpatialBench segmentation benchmarking
+# Benchmarking cell segmentation methods on imaging-based spatial transcriptomics analysis
 
 This repository contains an R workflow for benchmarking cell segmentation methods on imaging-based spatial transcriptomics analysis using the *SpatialBench* dataset. It processes MERSCOPE and Xenium datasets, builds Seurat objects from different segmentation outputs, performs sample processing and clustering, annotates cell types, computes benchmarking metrics, and generates thesis figures.
 
