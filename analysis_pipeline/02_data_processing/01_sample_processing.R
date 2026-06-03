@@ -53,8 +53,8 @@ if (!opt$platform %in% c("merscope", "xenium")) {
   stop("--platform must be merscope or xenium")
 }
 
-if (!opt$seg %in% c("default", "proseg", "cellpose22")) {
-  stop("--seg must be default, proseg, or cellpose22")
+if (!opt$seg %in% c("default", "proseg", "cellpose2")) {
+  stop("--seg must be default, proseg, or cellpose2")
 }
 
 if (!opt$assay %in% c("Vizgen", "Xenium")) {
