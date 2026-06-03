@@ -77,9 +77,6 @@ marker_list <- list(
   `Erythrocyte-like` = c("Tpx2", "Rrm1", "Ezh2", "Cdca8", "Pola1", "Ccnd3")
 )
 
-# Load embedded Seurat object
-obj <- readRDS(opt$input_rds)
-
 # Assign cluster labels based on input resolution
 message("Assign cell labels to clusters,")
 obj <- AssignCluster(obj, opt$res, marker_list)
@@ -89,4 +86,3 @@ dir.create(dirname(opt$out_file), recursive = TRUE, showWarnings = FALSE)
 saveRDS(obj, file = opt$out_file)
 message("\nSaved: ", opt$out_file)
 message("Done.")
-
